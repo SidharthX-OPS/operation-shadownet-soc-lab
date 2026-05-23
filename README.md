@@ -7,6 +7,7 @@
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=flat-square)
 
 ---
+<img width="2550" height="1423" alt="splunk-dashboard" src="https://github.com/user-attachments/assets/9995e557-bd8f-46a0-9bb0-8d6badf42a65" />
 
 ## What this is
 
