@@ -12,7 +12,7 @@
 
 A controlled adversary emulation against a Windows endpoint, with eight custom Splunk detection rules I wrote to catch it. The point wasn't to install Splunk and call it a lab. The point was to write detection logic against attacks I ran myself, validate every rule against the telemetry it claims to catch, and document the gaps honestly.
 
-Three VMs. Three hours. Eight detections. One log-clearing finale.
+Three VMs. seven hours. Eight detections. One log-clearing finale.
 
 ---
 
