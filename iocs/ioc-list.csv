@@ -1,0 +1,16 @@
+ioc_type,value,confidence,context,source,first_seen,last_seen
+ip,192.168.100.30,HIGH,Attacker source IP - reconnaissance and lateral movement attempts,Windows Security EID 5156,2026-05-23 12:30:00,2026-05-23 12:31:00
+registry_key,HKU\S-1-5-21-3355898466-3594867308-4199659375-1001\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\Atomic Red Team,HIGH,Persistence mechanism via Registry Run Key (T1547.001),Sysmon EID 13,2026-05-23 13:00:00,2026-05-23 13:00:00
+file_path,C:\Path\AtomicRedTeam.exe,HIGH,Run-key target binary - persistence payload location,Sysmon EID 13 (Details field),2026-05-23 13:00:00,2026-05-23 13:00:00
+file_path,%TEMP%\winword.exe,HIGH,Renamed cmd.exe simulating Office macro payload (T1566 proxy),Sysmon EID 1,2026-05-23 14:00:00,2026-05-23 14:00:00
+file_path,%TEMP%\excel.exe,HIGH,Renamed cmd.exe simulating Office macro payload (T1566 proxy),Sysmon EID 1,2026-05-23 14:00:00,2026-05-23 14:00:00
+scheduled_task,T1053_005_OnStartup,HIGH,Persistence via scheduled task with BootTrigger executing cmd.exe /c calc.exe,Windows Security EID 4698,2026-05-23 13:16:47,2026-05-23 13:16:47
+process_pattern,powershell.exe -EncodedCommand,HIGH,Obfuscated execution pattern - T1059.001,Sysmon EID 1,2026-05-23 12:35:00,2026-05-23 12:35:00
+process_pattern,winword.exe -> powershell.exe,HIGH,Office macro spawn pattern - T1059/T1566 lineage,Sysmon EID 1,2026-05-23 14:00:00,2026-05-23 14:00:00
+process_access,SourceImage -> \Device\HarddiskVolume2\Windows\System32\lsass.exe,HIGH,LSASS memory access attempt - T1003.001 (partially blocked by Defender),Sysmon EID 10,2026-05-23 13:25:00,2026-05-23 13:25:00
+event,Security EID 1102 - Log Cleared,CRITICAL,Security event log clearing - anti-forensics (T1070.001),Splunk Alert DET-005,2026-05-23 14:30:00,2026-05-23 14:30:00
+event,System EID 104 - Log Cleared,CRITICAL,System event log clearing - anti-forensics (T1070.001),Splunk Alert DET-005,2026-05-23 14:30:00,2026-05-23 14:30:00
+event,Application EID 104 - Log Cleared,CRITICAL,Application event log clearing - anti-forensics (T1070.001),Splunk Alert DET-005,2026-05-23 14:30:00,2026-05-23 14:30:00
+host,NEXCORE-WIN,COMPROMISED,Victim endpoint - 6 distinct MITRE techniques observed within 60-minute window,Splunk Correlation Rule DET-008,2026-05-23 12:30:00,2026-05-23 14:30:00
+user_account,NEXCORE-WIN\WIN,COMPROMISED,Local administrator account used for all post-exploitation activity,Multiple sources,2026-05-23 12:35:00,2026-05-23 14:30:00
+
