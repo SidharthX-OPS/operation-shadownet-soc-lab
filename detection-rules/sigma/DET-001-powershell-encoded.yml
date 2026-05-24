@@ -1,0 +1,40 @@
+title: Suspicious PowerShell Encoded Command
+id: 1a8e4f50-1234-4abc-89de-shadownet001
+status: stable
+description: >
+  Detects PowerShell execution with encoded, obfuscated, or remote-payload
+  command-line patterns. Maps to MITRE ATT&CK T1059.001 (PowerShell) with
+  overlap to T1027 (Obfuscated Files). Common in malware loaders, post-exploitation
+  toolkits (Empire, Covenant), and adversary emulation frameworks (Atomic Red Team).
+references:
+  - https://attack.mitre.org/techniques/T1059/001/
+  - https://attack.mitre.org/techniques/T1027/
+author: Sidharth Chauhan (SidharthX-OPS)
+date: 2026/05/23
+modified: 2026/05/23
+tags:
+  - attack.execution
+  - attack.t1059.001
+  - attack.defense_evasion
+  - attack.t1027
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    EventID: 1
+    Image|endswith: '\powershell.exe'
+    CommandLine|contains:
+      - ' -enc '
+      - ' -EncodedCommand '
+      - ' -nop -w hidden '
+      - 'IEX('
+      - 'Invoke-Expression'
+      - 'DownloadString'
+      - 'FromBase64String'
+  condition: selection
+falsepositives:
+  - Legitimate admin automation using encoded commands (rare but possible)
+  - PowerShell-based software deployment tooling (SCCM, Intune)
+  - Signed Microsoft tooling that uses -EncodedCommand for parameter passing
+level: high
