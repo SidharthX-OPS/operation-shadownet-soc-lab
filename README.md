@@ -126,9 +126,9 @@ operation-shadownet-soc-lab/
 │   ├── attack-scenario.md
 │   └── atomic-tests-run.md
 └── screenshots/
-    ├── 01-splunk-dashboard.png
-    ├── 02-alerts-list.png
-    ├── 03-correlation-hero.png
+    ├── splunk-dashboard.png
+    ├── alerts-list.png
+    ├── correlation-hero.png
     └── (detection-specific screenshots)
 ```
 
