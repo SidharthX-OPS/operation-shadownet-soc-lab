@@ -128,7 +128,7 @@ operation-shadownet-soc-lab/
 └── screenshots/
     ├── splunk-dashboard.png
     ├── alerts-list.png
-    ├── correlation-hero.png
+    ├── correlation.png
     └── (detection-specific screenshots)
 ```
 
